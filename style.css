@@ -1,0 +1,55 @@
+@font-face {
+    font-family: roboto;
+    src: url(roboto-mono/RobotoMono-Light.ttf);
+}
+
+body {
+    background-color: rgb(51, 51, 51);
+    font-family: 'roboto';
+    color: rgb(235, 235, 210);
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+h1 {
+    font-size: 5em;
+}
+
+
+#welcome_msg h2 {
+    opacity: 0;
+}
+
+#welcome-container {
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+#content-container {
+    /* height: 100vh; */
+}
+
+#content-container h2 {
+    font-size: 3em;
+}
+
+#content-container p {
+    font-size: 1.5em;
+    margin-bottom: 3em;
+}
+
+#content-container a {
+    color: rgb(233, 198, 93);
+    font-size: 1.6em;
+    text-decoration: underline dotted 3px;
+}
+
+#content-container a:hover {
+    color: rgb(230, 212, 161);
+    /* font-size: 1.75em; */
+}
+
+i {
+    color: rgb(233, 198, 93);
+    /* width: 1.6em; */
+}
