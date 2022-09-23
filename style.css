@@ -13,16 +13,22 @@ body {
 
 h1 {
     font-size: 5em;
+    margin-bottom: 2.5em;
 }
 
 
-#welcome_msg h2 {
+#fade-in h2 {
     opacity: 0;
 }
 
 #welcome-container {
     height: 100vh;
     margin-bottom: 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
 }
 
 #content-container {

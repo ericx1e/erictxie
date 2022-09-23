@@ -1,6 +1,6 @@
 let typingInterval = window.setInterval(typingAnimation, 130);
 
-let titleText = "Eric Xie";
+let titleText = 'Eric Xie<br><span style="font-size: 0.6em;">student<br>programmer';
 let typingCounter = -5;
 let cursorBlink = false;
 
@@ -16,7 +16,7 @@ function typingAnimation() {
 
     if (typingCounter <= titleText.length) {
         if (titleText.charAt(typingCounter - 1) == '<') {
-            typingCounter += 2;
+            typingCounter = titleText.indexOf(">", typingCounter);
             // document.getElementById("title").innerHTML = titleText.substring(0, typingCounter - 1) + "_";
         } else {
             document.getElementById("title").innerHTML = titleText.substring(0, typingCounter) + "_";
@@ -31,20 +31,20 @@ function typingAnimation() {
 
 function cursorBlinkAnimation() {
     if (cursorBlink) {
-        document.getElementById("title").innerHTML = titleText + "_";
+        document.getElementById("title").innerHTML = titleText + "_" + "</span>";
     } else {
-        document.getElementById("title").innerHTML = titleText;
+        document.getElementById("title").innerHTML = titleText + "</span>";
     }
     cursorBlink = !cursorBlink;
 }
 
 function kek() {
     //get the welcome msg element
-    var $all_msg = $('#welcome_msg');
+    var $all_msg = $('#fade-in');
     //get a list of letters from the welcome text
-    var $wordList = $('#welcome_msg').text().split("");
+    var $wordList = $('#fade-in').text().split("");
     //clear the welcome text msg
-    $('#welcome_msg').text("");
+    $('#fade-in').text("");
     //loop through the letters in the $wordList array
     $.each($wordList, function (idx, elem) {
         //create a span for the letter and set opacity to 0

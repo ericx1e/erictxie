@@ -22,8 +22,8 @@
                 <h1 id="title">
                     <!-- Eric Xie -->
                 </h1>
-                <div id="welcome_msg">
-                    <h2>scroll to explore</h2>
+                <div id="fade-in">
+                    <h2>scroll to explore ↓</h2>
                 </div> 
             </div>
         </div>
@@ -39,14 +39,31 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime itaque corrupti exercitationem explicabo, consequuntur natus iure aut fugiat. Alias perspiciatis quibusdam nemo fuga odit distinctio nam qui facilis quidem! Maxime!</p>
             <a href="https://ericx1e.github.io/Battle-JS/" target="_blank">battle</a>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quisquam illum nihil animi error corporis quas, necessitatibus minima sint? Nam ratione saepe adipisci quos nobis quo nemo minima doloremque aspernatur.</p>
-            <a href="https://ericx1e.github.io/DoubleUp/" target="_blank">double up</a>
+            <a href="https://ericx1e.github.io/Double-Up/" target="_blank">double up</a>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tempore ab delectus ipsum ipsam recusandae voluptates nostrum, eligendi illo velit inventore, repellendus porro debitis optio nisi, quibusdam consequatur quia ad.</p>
             <a href="https://ericx1e.github.io/HTMLeap/" target="_blank">htmleap</a>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae esse, modi reprehenderit aliquam nemo autem praesentium, inventore nostrum illum atque consectetur ducimus. Corrupti natus, recusandae placeat omnis aut voluptatem officiis!</p>
-            <a href="https://ericx1e.github.io/ASCII-Cam/" target="_blank">ascii cam</a>
+            <a href="https://ericx1e.github.io/Ascii-Cam/" target="_blank">ascii cam</a>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur molestias fugit, itaque minima unde beatae explicabo voluptates in saepe amet, iusto magni ipsum voluptatibus, vel deserunt! Adipisci dicta amet unde!</p>
             <a href="https://ericx1e.github.io/Galton-Board/" target="_blank">galton board</a>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae, ab nulla cumque facere architecto facilis! Laborum, consectetur deserunt rem, quas excepturi suscipit qui architecto odit at dolore rerum! Eius, eos.</p>
         </div>
+        <script type="text/javascript"> 
+            let text = document.getElementById('welcome-container');
+            window.addEventListener('scroll', function () {
+                let value = window.scrollY;
+                // text.style.marginLeft = -value * 0.7 + 'px'
+                text.style.marginBottom = value * 0.4 + 'px'
+                // text.style.fontSize = 25 - value * 0.03 + 'vh';
+                console.log(value);
+                // if (value > 450) {
+                //     text.style.visibility = "hidden";
+                // } else {
+                //     text.style.visibility = "visible";
+                // }
+            
+                // text.style.display 
+            })
+        </script>
     </body>
 </html>
