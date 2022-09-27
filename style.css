@@ -22,7 +22,7 @@ h1 {
 }
 
 #welcome-container {
-    height: 100vh;
+    min-height: 100vh;
     margin-bottom: 0;
     position: relative;
     width: 100%;
