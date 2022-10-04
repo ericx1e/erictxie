@@ -68,10 +68,12 @@
         </div>
         <script type="text/javascript"> 
             let text = document.getElementById('welcome-container');
+            let mult = window.innerHeight / 2000;
             window.addEventListener('scroll', function () {
                 let value = window.scrollY;
-                let mult = window.innerHeight / 2000
-                text.style.marginBottom = value * mult + 'px'
+                if (window.innerWidth > window.innerHeight) {
+                    text.style.marginBottom = value * mult + 'px'
+                }
                 let o = value / window.innerHeight * (1 + mult)
                 text.style.opacity = 1 - o
                 // text.style.fontSize = 25 - value * 0.03 + 'vh';
