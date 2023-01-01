@@ -23,7 +23,7 @@ function typingAnimation() {
         }
         typingCounter++;
     } else {
-        kek();
+        fadeIn();
         clearInterval(typingInterval);
         window.setInterval(cursorBlinkAnimation, 450);
     }
@@ -38,7 +38,7 @@ function cursorBlinkAnimation() {
     cursorBlink = !cursorBlink;
 }
 
-function kek() {
+function fadeIn() {
     //get the welcome msg element
     var $all_msg = $('#fade-in');
     //get a list of letters from the welcome text

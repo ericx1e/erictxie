@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="index.js"></script>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css" integrity="sha512-6mc0R607di/biCutMUtU9K7NtNewiGQzrvWX4bWTeqmljZdJrwYvKJtnhgR+Ryvj+NRJ8+NnnCM/biGqMe/iRA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
             integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
             crossorigin="anonymous" />
@@ -22,9 +23,26 @@
                 <h1 id="title">
                     <!-- Eric Xie -->
                 </h1>
-                <div id="fade-in">
-                    <h2>scroll to explore ↓</h2>
-                </div> 
+                <div class="image">
+                    <img src="assets/me picture.jpg" alt="Avatar">
+                    <h2>
+                        <br>
+                        <i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i> University of Maryland 2026 
+                        <br>
+                        <br>
+                        <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                        ericxie6@gmail.com
+                        <br>
+                        <br>
+                        <i class="fa fa-file fa-lg" aria-hidden="true"></i>
+                        <a href="assets/Eric Xie Resume.pdf" download>
+                            Resume download
+                          </a>
+                    </h2>
+                </div>
+            </div>
+            <div id="fade-in">
+                <h2>scroll to explore ↓</h2>
             </div>
         </div>
         <div id="content-container">
@@ -68,14 +86,16 @@
         </div>
         <script type="text/javascript"> 
             let text = document.getElementById('welcome-container');
-            let mult = window.innerHeight / 2000;
+            let text1 = document.getElementById('content-container');
+            let mult = window.innerHeight / 4000;
             window.addEventListener('scroll', function () {
                 let value = window.scrollY;
-                if (window.innerWidth > window.innerHeight) {
-                    text.style.marginBottom = value * mult + 'px'
-                }
+                // if (window.innerWidth > window.innerHeight) {
+                //     text.style.marginBottom = value * mult + 'px'
+                // }
                 let o = value / window.innerHeight * (1 + mult)
                 text.style.opacity = 1 - o
+                text1.style.opacity = o;
                 // text.style.fontSize = 25 - value * 0.03 + 'vh';
                 // if (value > 450) {
                 //     text.style.visibility = "hidden";

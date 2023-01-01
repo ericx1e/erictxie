@@ -12,8 +12,9 @@ body {
 }
 
 h1 {
+    min-width: 7em;
     font-size: 5em;
-    margin-bottom: 2.5em;
+    /* margin-bottom: 2.5em; */
 }
 
 
@@ -22,13 +23,18 @@ h1 {
 }
 
 #welcome-container {
-    min-height: 100vh;
+    min-height: 120vh;
     margin-bottom: 0;
     position: relative;
     width: 100%;
+}
+
+
+.title-container {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: left;
+    flex-wrap: wrap;
 }
 
 #content-container {
@@ -68,4 +74,19 @@ a:hover {
 i {
     color: rgb(233, 198, 93);
     /* width: 1.6em; */
+}
+
+.image {
+    padding-top: 4%;
+    margin-bottom: 2.5em;
+}
+
+img {
+    vertical-align: middle;
+    width: 20em;
+    height: 20em;
+    border-radius: 50%;
+    /* max-width: 100%; */
+    /* flex-basis: 70%;
+    order: 2; */
 }
