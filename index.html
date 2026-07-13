@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Eric Xie</title>
+    <meta name="description" content="Eric Xie — I make playful things for the internet.">
+    <link rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Gochi+Hand&family=Schoolbell&family=Coming+Soon&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!-- strings the name letters hang from -->
+    <svg id="strings" aria-hidden="true"></svg>
+
+    <!-- physics playground: letters + project cards get injected here -->
+    <div id="world"></div>
+
+    <div class="copy" aria-hidden="true">
+      <p class="tagline">i make things for the internet</p>
+      <p class="hint">drag the mess around &nbsp;·&nbsp; click a card to peek &nbsp;·&nbsp;
+        double-click to poke</p>
+    </div>
+
+    <svg class="doodle arrow" viewBox="0 0 120 100" aria-hidden="true">
+      <path d="M18 10 C 46 26, 52 54, 68 78" fill="none" />
+      <path d="M50 70 L 70 81 L 68 58" fill="none" />
+    </svg>
+
+    <div class="controls">
+      <button id="rehangBtn" type="button" hidden>re-hang ✂️</button>
+      <button id="tidyBtn" type="button">tidy up</button>
+      <button id="shakeBtn" type="button">shake!</button>
+      <button id="gravityBtn" type="button">flip gravity 🙃</button>
+    </div>
+
+    <footer>
+      <p class="credit">built with matter.js — everything is draggable</p>
+    </footer>
+
+    <div id="overlay" hidden>
+      <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button id="closeBtn" type="button" aria-label="close">✕</button>
+        <div class="m-emoji"></div>
+        <h2 class="m-title" id="modalTitle"></h2>
+        <div class="m-shotwrap" hidden><img class="m-shot" alt></div>
+        <p class="m-desc"></p>
+        <div class="m-links"></div>
+      </div>
+    </div>
+
+    <noscript>
+      <div class="noscript">
+        <h1>Eric Xie</h1>
+        <p>I make playful things for the internet. (This page is normally a physics toy box —
+          enable JavaScript for the fun version.)</p>
+        <ul>
+          <li><a href="https://wordbord.com">Word Bord</a></li>
+          <li><a href="https://24thegame.com">24</a></li>
+          <li><a href="https://studybrew.netlify.app">StudyBrew</a></li>
+          <li><a href="https://github.com/ericx1e">…everything else on GitHub</a></li>
+        </ul>
+      </div>
+    </noscript>
+
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
+    <script src="projects.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
