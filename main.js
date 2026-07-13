@@ -645,7 +645,7 @@
     btn.addEventListener('click', function () {
       markInput();
       tidyMode = !tidyMode;
-      btn.textContent = tidyMode ? 'make a mess! 🌪️' : 'tidy up 🧹';
+      btn.textContent = tidyMode ? 'mess up 🌪️' : 'tidy up 🧹';
       if (tidyMode) {
         tidyLayout(false);
       } else {

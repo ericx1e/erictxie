@@ -53,6 +53,7 @@ const PROJECTS = [
   },
   {
     name: 'Tanks',
+    img: 'images/tanks.png',
     emoji: '💥',
     desc: 'A roguelite multiplayer tank battle arena.',
     live: 'https://tankgame.app',
