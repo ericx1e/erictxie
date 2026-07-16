@@ -1,6 +1,7 @@
 /*
  * The toys in the toy box. Edit freely — each entry becomes a physics card.
  * `live` is optional; cards without it just link to the source.
+ * `featured: true` stars a card: ⭐ badge, golden glow, bigger, first in tidy mode.
  */
 const PROJECTS = [
   {
@@ -57,14 +58,14 @@ const PROJECTS = [
     emoji: '💥',
     desc: 'A roguelite multiplayer tank battle arena.',
     live: 'https://tankgame.app',
+    featured: true,
     // github: '', TODO: add repo link
   },
   {
-    name: 'Galton Board',
-    img: 'images/galton.png',
-    emoji: '📊',
-    desc: 'A satisfying Galton board simulation — my first matter.js toy. This website is its descendant.',
-    live: 'https://ericx1e.github.io/Galton-Board/',
-    github: 'https://github.com/ericx1e/Galton-Board',
+    name: 'RNG Chess',
+    img: 'images/rngchess.png',
+    emoji: '🎲',
+    desc: ' Chess, but fate makes the final call. You pick the direction, the odds pick the square.',
+    live: 'https://rngchess.fly.dev',
   },
 ];

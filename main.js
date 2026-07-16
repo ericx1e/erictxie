@@ -18,17 +18,41 @@
   function vw() { return window.innerWidth; }
   function vh() { return window.innerHeight; }
 
+  // polaroid: screenshot on top, emoji + name as the handwritten caption
   function cardEl(p, i) {
     var el = document.createElement('div');
     el.className = 'card tint' + (i % 6);
+    if (p.img) {
+      var shot = document.createElement('img');
+      shot.className = 'shot';
+      shot.src = p.img;
+      shot.alt = '';
+      shot.draggable = false;
+      // missing screenshot: drop the photo and let the emoji fill the frame
+      shot.addEventListener('error', function () {
+        shot.remove();
+        el.classList.add('no-shot');
+      });
+      el.appendChild(shot);
+    }
+    var cap = document.createElement('span');
+    cap.className = 'caption';
     var em = document.createElement('span');
     em.className = 'emoji';
     em.textContent = p.emoji;
     var nm = document.createElement('span');
     nm.className = 'pname';
     nm.textContent = p.name;
-    el.appendChild(em);
-    el.appendChild(nm);
+    cap.appendChild(em);
+    cap.appendChild(nm);
+    el.appendChild(cap);
+    if (p.featured) {
+      el.classList.add('featured');
+      var star = document.createElement('span');
+      star.className = 'star';
+      star.textContent = '⭐';
+      el.appendChild(star);
+    }
     return el;
   }
 
@@ -36,11 +60,12 @@
 
   function openModal(p) {
     overlay.querySelector('.m-emoji').textContent = p.emoji;
-    overlay.querySelector('.m-title').textContent = p.name;
+    overlay.querySelector('.m-title').textContent = (p.featured ? '⭐ ' : '') + p.name;
     overlay.querySelector('.m-desc').textContent = p.desc;
     var shotWrap = overlay.querySelector('.m-shotwrap');
     if (p.img) {
       var shot = overlay.querySelector('.m-shot');
+      shot.onerror = function () { shotWrap.hidden = true; };
       shot.src = p.img;
       shot.alt = p.name + ' screenshot';
       shotWrap.hidden = false;
@@ -279,7 +304,7 @@
     emoji: '👋',
     desc: 'I\'m Eric — CS + math alum at the University of Maryland, based in Virginia. ' +
       'I build games and playful things for the internet, and I\'m into machine ' +
-      'learning, web dev, finance, and algorithms. Also bouldering, pickleball, and running.',
+      'learning, web dev, finance, and algorithms. Also bouldering, pickleball, running, and gaming.',
     links: [
       { href: 'Eric_Xie_Resume.pdf', label: 'resume ↗' },
       // { href: 'mailto:ericxie6@gmail.com', label: 'say hi ↗' }
@@ -346,7 +371,6 @@
 
   function spawnCards() {
     var cw = Math.max(96, Math.min(150, vw() * 0.15));
-    var ch = Math.round(cw * 0.74);
 
     // deal cards into shuffled slots across the width so the pile spreads
     // out and most cards land face-up (drops straight down = less tumbling)
@@ -355,8 +379,9 @@
 
     PROJECTS.forEach(function (p, i) {
       setTimeout(function () {
-        var w = Math.round(cw * (0.9 + Math.random() * 0.25));
-        var h = Math.round(w * 0.74);
+        // featured cards always come out bigger than the random range allows
+        var w = Math.round(cw * (p.featured ? 1.22 : 0.9 + Math.random() * 0.25));
+        var h = Math.round(w * 0.96); // near-square polaroid proportions
         var el = cardEl(p, i);
         if (w < 116) el.classList.add('small');
         el.style.width = w + 'px';
@@ -624,7 +649,11 @@
     // sit the grid in the lower half so it clears the tagline text
     var startY = Math.max(340, vh() * 0.56 - (rows * slotH) / 2 + slotH / 2);
     startY = Math.min(startY, vh() - 50 - maxH / 2 - (rows - 1) * slotH);
-    cards.forEach(function (c, i) {
+    // featured cards take the front of the grid
+    var ordered = cards.slice().sort(function (a, b) {
+      return (b.body.plugin.project.featured ? 1 : 0) - (a.body.plugin.project.featured ? 1 : 0);
+    });
+    ordered.forEach(function (c, i) {
       var to = {
         x: startX + (i % cols) * slotW,
         y: startY + Math.floor(i / cols) * slotH,

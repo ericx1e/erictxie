@@ -160,6 +160,7 @@ footer       { z-index: 20; }
   will-change: transform;
 }
 
+/* polaroid: tinted frame, screenshot photo, handwritten caption below */
 .card {
   position: absolute;
   left: 0;
@@ -167,8 +168,9 @@ footer       { z-index: 20; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 3px;
+  padding: 7px 7px 4px;
   background: var(--card-bg);
   border: 2.5px solid var(--ink);
   border-radius: var(--wobble-a);
@@ -181,11 +183,31 @@ footer       { z-index: 20; }
 
 .grabbing, .grabbing .card, .grabbing .letter { cursor: grabbing !important; }
 
-.card .emoji { font-size: 30px; line-height: 1; pointer-events: none; }
+.card .shot {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  border: 2px solid var(--ink);
+  border-radius: 6px 3px 7px 4px / 4px 6px 3px 7px;
+  background: var(--card-bg);
+  pointer-events: none;
+}
+
+.card .caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.card .emoji { font-size: 17px; line-height: 1; pointer-events: none; }
 
 .card .pname {
-  font-size: 17px;
-  max-width: 92%;
+  font-size: 16px;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -227,8 +249,39 @@ footer       { z-index: 20; }
 .letter.lf3 { font-family: 'Schoolbell', cursive; }
 .letter.lf4 { font-family: 'Coming Soon', cursive; }
 
-.card.small .pname { font-size: 14px; }
-.card.small .emoji { font-size: 24px; }
+/* card whose screenshot failed to load: big emoji fills the frame instead */
+.card.no-shot { justify-content: center; }
+.card.no-shot .caption { flex-direction: column; gap: 3px; }
+.card.no-shot .emoji { font-size: 34px; }
+
+.card.small { padding: 5px 5px 3px; }
+.card.small .pname { font-size: 13px; }
+.card.small .emoji { font-size: 14px; }
+
+/* starred project: golden glow + a ⭐ pinned to the corner */
+.card.featured {
+  box-shadow:
+    3px 4px 0 rgba(43, 38, 32, 0.8),
+    0 0 0 3px rgba(250, 204, 21, 0.55),
+    0 0 16px 4px rgba(250, 204, 21, 0.45);
+}
+
+/* caption scales up with the bigger card */
+.card.featured .emoji { font-size: 21px; }
+.card.featured .pname { font-size: 20px; }
+
+.card .star {
+  position: absolute;
+  top: -13px;
+  right: -11px;
+  font-size: 24px;
+  line-height: 1;
+  transform: rotate(14deg);
+  filter: drop-shadow(1px 2px 0 rgba(43, 38, 32, 0.35));
+  pointer-events: none;
+}
+
+.card.small .star { font-size: 19px; top: -10px; right: -9px; }
 
 .toy {
   position: absolute;
@@ -479,7 +532,7 @@ footer .credit {
 .no-physics .card {
   position: static;
   width: 140px;
-  height: 104px;
+  height: 134px;
   cursor: pointer;
 }
 
