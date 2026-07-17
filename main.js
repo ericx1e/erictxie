@@ -298,13 +298,12 @@
   /* ---------- dangling link buttons: email + github on strings ---------- */
 
   // about-me content shown in the same modal the projects use
-  // (bio pulled from the old site — edit freely, it may be stale!)
   var ABOUT = {
     name: 'about me',
     emoji: '👋',
-    desc: 'I\'m Eric — CS + math alum at the University of Maryland, based in Virginia. ' +
-      'I build games and playful things for the internet, and I\'m into machine ' +
-      'learning, web dev, finance, and algorithms. Also bouldering, pickleball, running, and gaming.',
+    desc: 'I\'m Eric — recently out of the University of Maryland, now in Virginia. ' +
+      'I make games and small experiments for the internet — poke around. ' +
+      'Resume below if you\'re into that sort of thing.',
     links: [
       { href: 'Eric_Xie_Resume.pdf', label: 'resume ↗' },
       // { href: 'mailto:ericxie6@gmail.com', label: 'say hi ↗' }

@@ -327,12 +327,6 @@ footer       { z-index: 20; }
   pointer-events: none;
 }
 
-.tagline {
-  font-family: 'Caveat', cursive;
-  font-weight: 600;
-  font-size: clamp(24px, 3.6vw, 36px);
-}
-
 .hint {
   margin-top: 2px;
   font-size: clamp(14px, 2vw, 17px);
