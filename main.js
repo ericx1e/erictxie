@@ -300,7 +300,7 @@
   // about-me content shown in the same modal the projects use
   var ABOUT = {
     name: 'about me',
-    emoji: '👋',
+    emoji: '😀',
     desc: 'I\'m Eric — recently out of the University of Maryland, now in Virginia. ' +
       'I make games and small experiments for the internet — poke around. ' +
       'Resume below if you\'re into that sort of thing.',
