@@ -66,6 +66,6 @@ const PROJECTS = [
     img: 'images/rngchess.png',
     emoji: '🎲',
     desc: ' Chess, but fate makes the final call. You pick the direction, the odds pick the square.',
-    live: 'https://rngchess.fly.dev',
+    live: 'https://rng-chess.fly.dev',
   },
 ];
